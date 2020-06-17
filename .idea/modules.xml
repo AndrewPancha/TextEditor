@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Problems/A lambda expression with seven arguments/Problems-A_lambda_expression_with_seven_arguments.iml" filepath="$PROJECT_DIR$/.idea/modules/Problems/A lambda expression with seven arguments/Problems-A_lambda_expression_with_seven_arguments.iml" group="Text_Editor/Problems-A_lambda_expression_with_seven_arguments" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Problems/A lambda expression with seven arguments/Problems-A_lambda_expression_with_seven_arguments_main.iml" filepath="$PROJECT_DIR$/.idea/modules/Problems/A lambda expression with seven arguments/Problems-A_lambda_expression_with_seven_arguments_main.iml" group="Text_Editor/Problems-A_lambda_expression_with_seven_arguments" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Problems/A lambda expression with seven arguments/Problems-A_lambda_expression_with_seven_arguments_test.iml" filepath="$PROJECT_DIR$/.idea/modules/Problems/A lambda expression with seven arguments/Problems-A_lambda_expression_with_seven_arguments_test.iml" group="Text_Editor/Problems-A_lambda_expression_with_seven_arguments" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Problems/Getting distinct strings/Problems-Getting_distinct_strings.iml" filepath="$PROJECT_DIR$/.idea/modules/Problems/Getting distinct strings/Problems-Getting_distinct_strings.iml" group="Text_Editor/Problems-Getting_distinct_strings" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Problems/Getting distinct strings/Problems-Getting_distinct_strings_main.iml" filepath="$PROJECT_DIR$/.idea/modules/Problems/Getting distinct strings/Problems-Getting_distinct_strings_main.iml" group="Text_Editor/Problems-Getting_distinct_strings" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Problems/Getting distinct strings/Problems-Getting_distinct_strings_test.iml" filepath="$PROJECT_DIR$/.idea/modules/Problems/Getting distinct strings/Problems-Getting_distinct_strings_test.iml" group="Text_Editor/Problems-Getting_distinct_strings" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Text_Editor.iml" filepath="$PROJECT_DIR$/.idea/modules/Text_Editor.iml" group="Text_Editor" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Text Editor/task/Text_Editor-task.iml" filepath="$PROJECT_DIR$/.idea/modules/Text Editor/task/Text_Editor-task.iml" group="Text_Editor/Text_Editor-task" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Text Editor/task/Text_Editor-task_main.iml" filepath="$PROJECT_DIR$/.idea/modules/Text Editor/task/Text_Editor-task_main.iml" group="Text_Editor/Text_Editor-task" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Text Editor/task/Text_Editor-task_test.iml" filepath="$PROJECT_DIR$/.idea/modules/Text Editor/task/Text_Editor-task_test.iml" group="Text_Editor/Text_Editor-task" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/util/util.iml" filepath="$PROJECT_DIR$/.idea/modules/util/util.iml" group="Text_Editor/util" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/util/util_main.iml" filepath="$PROJECT_DIR$/.idea/modules/util/util_main.iml" group="Text_Editor/util" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/util/util_test.iml" filepath="$PROJECT_DIR$/.idea/modules/util/util_test.iml" group="Text_Editor/util" />
+    </modules>
+  </component>
+</project>
