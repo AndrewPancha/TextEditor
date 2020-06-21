@@ -54,8 +54,6 @@ topics:
     theory_id: 3510
   - title: Primitive and reference types
     theory_id: 5035
-  - title: Final variables
-    theory_id: 7427
   - title: Array
     theory_id: 3511
   - title: Comments
@@ -78,6 +76,8 @@ topics:
     theory_id: 3514
   - title: String
     theory_id: 3523
+  - title: Final variables
+    theory_id: 7427
   - title: Conditional statement
     theory_id: 3503
   - title: The for-loop

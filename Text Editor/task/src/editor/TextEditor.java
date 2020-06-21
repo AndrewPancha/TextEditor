@@ -1,5 +1,6 @@
 package editor;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.filechooser.FileSystemView;
 import java.awt.*;
@@ -32,6 +33,7 @@ public class TextEditor extends JFrame {
     private JButton previousButton;
     private JButton nextButton;
     private JCheckBox regExCheckBox;
+    private PositionFinder positionFinder = new PositionFinder();
 
     private JTextArea textArea;
     private JTextField textField;
@@ -39,12 +41,8 @@ public class TextEditor extends JFrame {
     private File file;
     private String filename;
     private String text;
-    private List<Indexes> indexes;
-    private int point;
-    private int index;
-    private String foundText;
-    private int startIndex;
-    private int endIndex;
+    private boolean isRegexp = false;
+    private int caretPosition = 0;
 
 
 
@@ -53,7 +51,11 @@ public class TextEditor extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(500, 500);
         initMenu();
-        initUI();
+        try {
+            initUI();
+        } catch (IOException e) {
+
+        }
         addActionListeners();
         setVisible(true);
     }
@@ -105,7 +107,7 @@ public class TextEditor extends JFrame {
         setJMenuBar(menuBar);
     }
 
-    public void initUI() {
+    public void initUI() throws IOException {
         panel = new JPanel();
         panel.setName("Panel");
         panel.setLayout(new FlowLayout());
@@ -168,17 +170,17 @@ public class TextEditor extends JFrame {
         menuLoad.addActionListener(event -> loadText());
         menuSave.addActionListener(event -> saveText());
         menuExit.addActionListener(event -> System.exit(0));
-        menuSearchItem.addActionListener(event -> searchText());
-        menuPrevious.addActionListener(event -> previousMatch());
-        menuNext.addActionListener(event -> nextMatch());
-        menuRegex.addActionListener(event -> searchText());
+        menuSearchItem.addActionListener(event -> newFind());
+        menuPrevious.addActionListener(event -> previousFind());
+        menuNext.addActionListener(event -> nextFind());
+        menuRegex.addActionListener(event -> setCheckBox());
 
 
         loadButton.addActionListener(event -> loadText());
         saveButton.addActionListener(event -> saveText());
-        searchButton.addActionListener(event -> searchText());
-        previousButton.addActionListener(event -> previousMatch());
-        nextButton.addActionListener(event -> nextMatch());
+        searchButton.addActionListener(event -> newFind());
+        previousButton.addActionListener(event -> previousFind());
+        nextButton.addActionListener(event -> nextFind());
     }
 
 
@@ -220,49 +222,42 @@ public class TextEditor extends JFrame {
 
     }
 
-    public void searchText() {
-            point = 0;
+    private void newFind() {
+        caretPosition = 0;
+        find();
+    }
 
-            indexes = new ArrayList<>();
-            foundText = textField.getText();
-            String text = textArea.getText();
-            Pattern pattern = Pattern.compile(foundText);
-            Matcher matcher = pattern.matcher(text);
-            while (matcher.find()) {
-                startIndex = matcher.start();
-                endIndex = matcher.end();
-                indexes.add(new Indexes(startIndex, endIndex));
-            }
-            if (!indexes.isEmpty()) {
-                startIndex = indexes.get(point).getStartIndex();
-                endIndex = indexes.get(point).getEndIndex();
-            }
+    private void previousFind() {
+        caretPosition--;
+        find();
+    }
 
+    private void nextFind() {
+        caretPosition++;
+        find();
+    }
+
+    private void find() {
+        Indexes indexes;
+        int startIndex = 0;
+        int endIndex = 0;
+        String text = textArea.getText();
+        String pattern = textField.getText();
+
+        positionFinder.setText(text);
+        positionFinder.setIsRegexp(isRegexp);
+        positionFinder.setPatternString(pattern);
+        positionFinder.find();
+
+        indexes = positionFinder.getIndex(caretPosition);
+        startIndex = indexes.getStartIndex();
+        endIndex = indexes.getEndIndex();
         textArea.select(startIndex, endIndex);
         textArea.grabFocus();
-
     }
 
-    public void previousMatch() {
-            point -= 1;
-            if (point < 0) {
-                point = 0;
-            }
-            startIndex = indexes.get(point).getStartIndex();
-            endIndex = indexes.get(point).getEndIndex();
-            textArea.select(startIndex, endIndex);
-            textArea.grabFocus();
-    }
-
-    public void nextMatch() {
-            if ((point + 1) > (indexes.size())) {
-                point = indexes.size() - 1;
-            }
-            startIndex = indexes.get(point).getStartIndex();
-            endIndex = indexes.get(point).getEndIndex();
-            textArea.select(startIndex, endIndex);
-            textArea.grabFocus();
-
+    private void setCheckBox() {
+        isRegexp = !isRegexp;
     }
 
 
